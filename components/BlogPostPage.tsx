@@ -56,6 +56,49 @@ const BlogPostPage: React.FC = () => {
       });
   }, [slug]);
 
+  // Update meta tags when post loads
+  useEffect(() => {
+    if (post) {
+      // Update title
+      document.title = `${post.title} | Popunch`;
+
+      // Update or create meta description
+      let metaDescription = document.querySelector('meta[name="description"]');
+      if (!metaDescription) {
+        metaDescription = document.createElement('meta');
+        metaDescription.setAttribute('name', 'description');
+        document.head.appendChild(metaDescription);
+      }
+      metaDescription.setAttribute('content', post.excerpt);
+
+      // Open Graph tags
+      const ogTags = [
+        { property: 'og:title', content: post.title },
+        { property: 'og:description', content: post.excerpt },
+        { property: 'og:type', content: 'article' },
+      ];
+
+      if (post.mainImage) {
+        ogTags.push({ property: 'og:image', content: urlFor(post.mainImage).width(1200).height(630).url() });
+      }
+
+      ogTags.forEach(({ property, content }) => {
+        let tag = document.querySelector(`meta[property="${property}"]`);
+        if (!tag) {
+          tag = document.createElement('meta');
+          tag.setAttribute('property', property);
+          document.head.appendChild(tag);
+        }
+        tag.setAttribute('content', content);
+      });
+    }
+
+    // Cleanup: reset title when leaving
+    return () => {
+      document.title = 'Popunch';
+    };
+  }, [post]);
+
   if (loading) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center p-8 text-center bg-white">
