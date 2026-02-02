@@ -41,11 +41,11 @@ const Hero: React.FC = () => {
             THE UNIVERSE IS A COMIC
           </h2>
           <p className="text-xl font-bold max-w-lg mx-auto leading-relaxed">
-            Turn your boring reality into a 
-            <span className="text-red-500 mx-1">MASTERPIECE!</span> 
-            Upload a photo or write a thought, and let our 
-            <span className="bg-cyan-300 px-1 border-2 border-black mx-1">AI ENGINE</span> 
-            dramatize it!
+            Turn your boring reality into a
+            <span className="text-red-500 mx-1">MASTERPIECE!</span>
+            Upload a photo or drop a thought, and watch
+            <span className="bg-cyan-300 px-1 border-2 border-black mx-1 whitespace-nowrap">AI MAGIC</span>
+            happen!
           </p>
           
           <div className="pt-4 flex justify-center gap-4">
