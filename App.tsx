@@ -30,7 +30,7 @@ const Navigation: React.FC = () => {
 
   return (
     <nav className="fixed w-full z-50 top-0 left-0 border-b-4 border-black bg-white px-6 py-3 flex justify-between items-center box-shadow-hard-sm">
-      <div className="font-['Bangers'] text-3xl tracking-wide cursor-pointer" onClick={scrollToTop}>PopLife</div>
+      <div className="font-['Bangers'] text-3xl tracking-wide cursor-pointer" onClick={scrollToTop}>Popunch</div>
       <div className="hidden md:flex gap-4 font-bold text-sm">
         <button onClick={() => handleNavClick('')} className="hover:underline decoration-4 decoration-pink-500 uppercase">HOME</button>
         <button onClick={() => handleNavClick('maker')} className="hover:underline decoration-4 decoration-cyan-500 uppercase">MAKER</button>
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
     <footer className="bg-black text-white py-12 border-t-8 border-cyan-400">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
         <div>
-          <h3 className="text-4xl font-['Bangers'] text-yellow-400 mb-4">PopLife</h3>
+          <h3 className="text-4xl font-['Bangers'] text-yellow-400 mb-4">Popunch</h3>
           <p className="font-bold">Built for the bold. Powered by Gemini.</p>
         </div>
         <div>
@@ -58,12 +58,12 @@ const Footer: React.FC = () => {
         </div>
         <div className="flex items-center justify-center md:justify-end">
            <div className="w-16 h-16 bg-pink-500 rounded-full border-4 border-white flex items-center justify-center font-['Bangers'] text-2xl animate-spin-slow">
-             PL
+             PP
            </div>
         </div>
       </div>
       <div className="text-center mt-12 text-sm font-mono text-gray-400">
-        © {new Date().getFullYear()} PopLife Studios. All rights reserved.
+        © {new Date().getFullYear()} Popunch Studios. All rights reserved.
       </div>
     </footer>
   );

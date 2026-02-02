@@ -3,12 +3,12 @@
 /* Custom Halftone Pattern */
 .bg-halftone {
   background-image: radial-gradient(circle, #000 1px, transparent 1.5px);
-  background-size: 10px 10px;
+  background-size: 16px 16px;
 }
 
 .bg-halftone-pink {
   background-image: radial-gradient(circle, #db2777 2px, transparent 2.5px);
-  background-size: 12px 12px;
+  background-size: 18px 18px;
 }
 
 /* Text Shadow */

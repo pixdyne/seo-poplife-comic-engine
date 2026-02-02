@@ -1,7 +1,7 @@
 import { sanityClient } from './sanity';
 import { BlogPost } from '../types';
 
-const SITE_ID = 'poplife-comic-engine';
+const SITE_ID = 'popunch';
 
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   return sanityClient.fetch(`

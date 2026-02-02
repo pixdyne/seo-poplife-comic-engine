@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
 
         <div className="text-center space-y-6">
           <h1 className="text-7xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600 text-shadow-pop stroke-black" style={{ WebkitTextStroke: '3px black' }}>
-            POP LIFE
+            PoPunch
           </h1>
           <h2 className="text-2xl md:text-4xl bg-black text-white inline-block px-4 py-2 transform -rotate-2">
             THE UNIVERSE IS A COMIC
