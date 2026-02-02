@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PopLife</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+      /* Custom Halftone Pattern */
+      .bg-halftone {
+        background-image: radial-gradient(circle, #000 1px, transparent 1.5px);
+        background-size: 10px 10px;
+      }
+      .bg-halftone-pink {
+        background-image: radial-gradient(circle, #db2777 2px, transparent 2.5px);
+        background-size: 12px 12px;
+      }
+      .text-shadow-pop {
+        text-shadow: 3px 3px 0px #000000;
+      }
+      .box-shadow-hard {
+        box-shadow: 8px 8px 0px 0px #000000;
+      }
+      .box-shadow-hard-sm {
+        box-shadow: 4px 4px 0px 0px #000000;
+      }
+      body {
+        font-family: 'Comic Neue', cursive;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Bangers', system-ui;
+        letter-spacing: 1px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom": "https://aistudiocdn.com/react-dom@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.22.3?external=react,react-dom"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-yellow-400">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
