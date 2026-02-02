@@ -1,5 +1,6 @@
 import React from 'react';
 import { BlogPost } from '../../types';
+import { urlFor } from '../../services/sanity';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -8,13 +9,21 @@ interface BlogCardProps {
 
 const BlogCard: React.FC<BlogCardProps> = ({ post, onClick }) => {
   return (
-    <div 
+    <div
       onClick={() => onClick(post)}
       className="group relative bg-white border-4 border-black box-shadow-hard cursor-pointer transition-all duration-300 hover:-translate-y-2 hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] flex flex-col h-full"
     >
-      {/* Header Color Block */}
-      <div className={`h-24 ${post.color} border-b-4 border-black relative overflow-hidden`}>
-        <div className="absolute inset-0 bg-halftone opacity-20"></div>
+      {/* Main Image */}
+      <div className={`h-48 ${post.color} border-b-4 border-black relative overflow-hidden`}>
+        {post.mainImage ? (
+          <img
+            src={urlFor(post.mainImage).width(400).height(200).url()}
+            alt={post.mainImage.alt}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="absolute inset-0 bg-halftone opacity-20"></div>
+        )}
         <div className="absolute top-2 right-2 bg-white border-2 border-black px-2 py-0.5 font-bold text-xs uppercase tracking-wider transform rotate-2">
           {post.category}
         </div>
@@ -24,7 +33,11 @@ const BlogCard: React.FC<BlogCardProps> = ({ post, onClick }) => {
       <div className="p-6 flex-grow flex flex-col">
         <div className="mb-2 text-xs font-bold text-gray-500 uppercase tracking-widest flex items-center gap-2">
           <span className="w-2 h-2 bg-black rounded-full"></span>
-          {post.date}
+          {new Date(post.publishedAt).toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric'
+          }).toUpperCase()}
         </div>
         
         <h3 className="text-2xl md:text-3xl font-['Bangers'] leading-none mb-3 group-hover:text-pink-600 transition-colors">

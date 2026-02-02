@@ -10,14 +10,53 @@ export interface PopArtAsset {
   title: string;
 }
 
+export interface SanityImage {
+  _type: 'image';
+  asset: {
+    _ref: string;
+    _type: 'reference';
+  };
+  alt: string;
+  hotspot?: {
+    x: number;
+    y: number;
+    height: number;
+    width: number;
+  };
+}
+
 export interface BlogPost {
-  id: string;
+  _id: string;
   title: string;
-  date: string;
-  excerpt: string;
-  content: string;
+  slug: string;
   category: string;
+  publishedAt: string;
+  excerpt: string;
+  mainImage: SanityImage;
+  contentImage: SanityImage;
+  content?: PortableTextBlock[];
   color: string; // Tailwind color class
+}
+
+export interface PortableTextBlock {
+  _type: string;
+  _key: string;
+  children?: PortableTextChild[];
+  style?: string;
+  markDefs?: MarkDef[];
+}
+
+export interface PortableTextChild {
+  _type: string;
+  _key: string;
+  text?: string;
+  marks?: string[];
+}
+
+export interface MarkDef {
+  _type: string;
+  _key: string;
+  href?: string;
 }
 
 export enum PopColor {

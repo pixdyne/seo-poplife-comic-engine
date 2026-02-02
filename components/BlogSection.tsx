@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BLOG_POSTS } from '../services/blogData';
+import { fetchBlogPosts } from '../services/blogService';
+import { BlogPost } from '../types';
 import BlogCard from './ui/BlogCard';
 
 const BlogSection: React.FC = () => {
   const navigate = useNavigate();
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const handlePostClick = (id: string) => {
-    navigate(`/blog/${id}`);
+  useEffect(() => {
+    fetchBlogPosts()
+      .then((data) => {
+        setPosts(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error('Error fetching blog posts:', err);
+        setError('Failed to load blog posts');
+        setLoading(false);
+      });
+  }, []);
+
+  const handlePostClick = (post: BlogPost) => {
+    navigate(`/blog/${post.slug}`);
     window.scrollTo(0, 0);
   };
 
@@ -29,15 +46,41 @@ const BlogSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
-          {BLOG_POSTS.map((post) => (
-            <BlogCard 
-              key={post.id} 
-              post={post} 
-              onClick={(p) => handlePostClick(p.id)} 
-            />
-          ))}
-        </div>
+        {loading && (
+          <div className="text-center py-12">
+            <div className="inline-block bg-white border-4 border-black px-6 py-3 font-bold text-xl animate-pulse">
+              LOADING...
+            </div>
+          </div>
+        )}
+
+        {error && (
+          <div className="text-center py-12">
+            <div className="inline-block bg-red-500 text-white border-4 border-black px-6 py-3 font-bold text-xl">
+              {error}
+            </div>
+          </div>
+        )}
+
+        {!loading && !error && posts.length === 0 && (
+          <div className="text-center py-12">
+            <div className="inline-block bg-white border-4 border-black px-6 py-3 font-bold text-xl">
+              No blog posts yet. Check back soon!
+            </div>
+          </div>
+        )}
+
+        {!loading && !error && posts.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+            {posts.map((post) => (
+              <BlogCard
+                key={post._id}
+                post={post}
+                onClick={handlePostClick}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
