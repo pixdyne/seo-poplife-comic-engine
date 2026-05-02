@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 120" role="img" aria-label="Popunch">
+  <!-- Ben-Day dots pattern -->
+  <defs>
+    <pattern id="logoDots" x="0" y="0" width="8" height="8" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="4" r="1.5" fill="#000" opacity="0.18"/>
+    </pattern>
+  </defs>
+
+  <!-- Mark: matches favicon (pink circle, Ben-Day overlay, two P's, starburst) -->
+  <g transform="translate(8,12)">
+    <circle cx="48" cy="48" r="44" fill="#ec4899" stroke="#000" stroke-width="5"/>
+    <circle cx="48" cy="48" r="40" fill="url(#logoDots)"/>
+    <text x="20" y="68" font-family="'Bangers', 'Arial Black', sans-serif" font-size="56" font-weight="900" fill="#facc15" stroke="#000" stroke-width="2.5">P</text>
+    <text x="46" y="68" font-family="'Bangers', 'Arial Black', sans-serif" font-size="56" font-weight="900" fill="#22d3ee" stroke="#000" stroke-width="2.5">P</text>
+    <polygon points="82,14 86,22 94,22 88,28 90,36 82,32 74,36 76,28 70,22 78,22" fill="#facc15" stroke="#000" stroke-width="1.5"/>
+  </g>
+
+  <!-- Wordmark "Popunch" — Pop Art comic-style display type -->
+  <g transform="translate(120,86)">
+    <!-- Black drop shadow layer -->
+    <text x="4" y="4" font-family="'Bangers', 'Arial Black', Impact, sans-serif" font-size="72" font-weight="900" letter-spacing="2" fill="#000">Popunch</text>
+    <!-- Yellow main fill with thick black stroke -->
+    <text x="0" y="0" font-family="'Bangers', 'Arial Black', Impact, sans-serif" font-size="72" font-weight="900" letter-spacing="2" fill="#facc15" stroke="#000" stroke-width="3" paint-order="stroke fill">Popunch</text>
+  </g>
+
+  <!-- Small accent starburst near wordmark -->
+  <polygon points="452,28 456,36 464,36 458,42 460,50 452,46 444,50 446,42 440,36 448,36" fill="#22d3ee" stroke="#000" stroke-width="1.5"/>
+</svg>
